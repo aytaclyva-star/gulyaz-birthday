@@ -1,48 +1,29 @@
-const startBtn = document.getElementById("startBtn");
-const surprise = document.getElementById("surprise");
-const giftBtn = document.getElementById("giftBtn");
-const gift = document.getElementById("gift");
+function showMessage() {
 
-startBtn.addEventListener("click", function () {
-
-    document.querySelector(".container").style.display = "none";
-
-    surprise.classList.remove("hidden");
-
-});
-
-
-giftBtn.addEventListener("click", function () {
-
-    surprise.style.display = "none";
-
-    gift.classList.remove("hidden");
+    document.getElementById("message").style.display = "block";
 
     createFlowers();
 
-});
-
+}
 
 function createFlowers() {
 
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 40; i++) {
 
-        let flower = document.createElement("div");
+        const flower = document.createElement("div");
 
+        flower.className = "flower";
         flower.innerHTML = "🌸";
 
-        flower.style.position = "fixed";
         flower.style.left = Math.random() * 100 + "vw";
-        flower.style.top = "-20px";
-        flower.style.fontSize = "25px";
-        flower.style.animation = "fall 4s linear";
+        flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+        flower.style.fontSize = (20 + Math.random() * 20) + "px";
 
         document.body.appendChild(flower);
 
-
         setTimeout(() => {
             flower.remove();
-        }, 4000);
+        }, 6000);
 
     }
 
